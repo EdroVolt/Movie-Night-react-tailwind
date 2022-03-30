@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Movie-Night/static/css/main.e43a32e6.css",
-    "main.js": "/Movie-Night/static/js/main.d3ecabc6.js",
-    "index.html": "/Movie-Night/index.html",
-    "main.e43a32e6.css.map": "/Movie-Night/static/css/main.e43a32e6.css.map",
-    "main.d3ecabc6.js.map": "/Movie-Night/static/js/main.d3ecabc6.js.map"
+    "main.css": "/Movie-Night-react-tailwind/static/css/main.e43a32e6.css",
+    "main.js": "/Movie-Night-react-tailwind/static/js/main.d3ecabc6.js",
+    "index.html": "/Movie-Night-react-tailwind/index.html",
+    "main.e43a32e6.css.map": "/Movie-Night-react-tailwind/static/css/main.e43a32e6.css.map",
+    "main.d3ecabc6.js.map": "/Movie-Night-react-tailwind/static/js/main.d3ecabc6.js.map"
   },
   "entrypoints": [
     "static/css/main.e43a32e6.css",
