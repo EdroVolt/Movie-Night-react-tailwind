@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Movie-Night-react-tailwind/static/css/main.742498e3.css",
-    "main.js": "/Movie-Night-react-tailwind/static/js/main.68090b60.js",
+    "main.js": "/Movie-Night-react-tailwind/static/js/main.7d6ad0ac.js",
     "index.html": "/Movie-Night-react-tailwind/index.html",
     "main.742498e3.css.map": "/Movie-Night-react-tailwind/static/css/main.742498e3.css.map",
-    "main.68090b60.js.map": "/Movie-Night-react-tailwind/static/js/main.68090b60.js.map"
+    "main.7d6ad0ac.js.map": "/Movie-Night-react-tailwind/static/js/main.7d6ad0ac.js.map"
   },
   "entrypoints": [
     "static/css/main.742498e3.css",
-    "static/js/main.68090b60.js"
+    "static/js/main.7d6ad0ac.js"
   ]
 }
