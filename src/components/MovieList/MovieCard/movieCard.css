@@ -1,0 +1,7 @@
+.movie-card:hover p, .movie-card:hover div.favourite-icon{
+  visibility: visible;
+}
+
+.movie-card:hover{
+  box-shadow: 5px 5px 5px black inset;
+}
