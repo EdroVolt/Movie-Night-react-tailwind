@@ -2,14 +2,7 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import "./navbar.css";
-import { Link } from "react-router-dom";
-
-const navigation = [
-  { name: "Movies", href: "/", current: true },
-  { name: "Favorit", href: "#", current: false },
-  // { name: "Projects", href: "#", current: false },
-  // { name: "Calendar", href: "#", current: false },
-];
+import { Link, NavLink } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -35,25 +28,33 @@ export default function Navbar() {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="brand flex-shrink-0 flex items-center text-yellow-300 text-4xl font-bold">
-                  Movie Night
+                  <Link to="/"> Movie Night </Link>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
-                      <Link
-                        key={item.name}
-                        to={item.href}
-                        className={classNames(
-                          item.current
-                            ? "text-lime-400 border-b-2"
-                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                          "px-3 py-2 rounded-md text-sm font-medium"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
+                    <NavLink
+                      to="/movies"
+                      className={({ isActive }) =>
+                        "px-3 py-2 rounded-md text-sm font-medium" +
+                        (isActive
+                          ? " border-b-2 text-green-300"
+                          : "text-gray-300 hover:bg-gray-700 hover:text-white")
+                      }
+                    >
+                      Movies
+                    </NavLink>
+
+                    <NavLink
+                      to="favourites"
+                      className={({ isActive }) =>
+                        "px-3 py-2 rounded-md text-sm font-medium" +
+                        (isActive
+                          ? " border-b-2 text-green-300"
+                          : "text-gray-300 hover:bg-gray-700 hover:text-white")
+                      }
+                    >
+                      favourite
+                    </NavLink>
                   </div>
                 </div>
               </div>
@@ -152,22 +153,21 @@ export default function Navbar() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current
-                      ? "bg-gray-900 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                    "block px-3 py-2 rounded-md text-base font-medium"
-                  )}
-                  aria-current={item.current ? "page" : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
+              <Disclosure.Button
+                as={Link}
+                to="/"
+                className="bg-gray-900 text-white"
+              >
+                Movies
+              </Disclosure.Button>
+
+              <Disclosure.Button
+                as={Link}
+                to="/favourites"
+                className="text-gray-300 hover:bg-gray-700 hover:text-white block py-2 rounded-md text-base font-medium"
+              >
+                Favourite
+              </Disclosure.Button>
             </div>
           </Disclosure.Panel>
         </>

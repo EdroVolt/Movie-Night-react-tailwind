@@ -32,9 +32,15 @@ export default function MovieList() {
 
   return (
     <>
-      <div className="grid grid-cols-12 gap-8">
+      <div className="grid grid-cols-12 gap-4 md:gap-8">
         {movies.map((movie) => (
-          <MovieCard key={movie.id} id={movie.id} image={movie.poster_path} />
+          <MovieCard
+            key={movie.id}
+            id={movie.id}
+            image={movie.poster_path}
+            runtime={movie.runtime}
+            voteAverage={movie.vote_average}
+          />
         ))}
       </div>
       <div className="mt-5">
