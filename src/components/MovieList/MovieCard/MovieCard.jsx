@@ -31,10 +31,10 @@ export default function MovieCard({ movie }) {
               : dispatch(removeFromFavourite(movie.id));
           }}
           className={
+            "favourite-icon active:bg-yellow-600 active:text-white hover:text-red-600 hover:bg-yellow-400 flex justify-center py-1 absolute top-0 right-0 left-0 bg-[#121212d1] " +
             (isInFavorites()
-              ? "visible bg-green-400 text-red-600 "
-              : "invisible ") +
-            "favourite-icon active:bg-green-400 hover:text-red-600 hover:bg-yellow-400 flex justify-center py-1 absolute top-0 right-0 left-0 bg-[#121212a1]"
+              ? " visible bg-green-400 text-red-500 "
+              : " invisible ")
           }
         >
           <HeartIcon className="w-8" />

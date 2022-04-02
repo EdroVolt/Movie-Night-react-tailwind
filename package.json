@@ -2,7 +2,7 @@
   "name": "movies-app-react-tailwindcss",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://EdroVolt.github.io/Movie-Night-react-tailwind",
+  "homepage": "https://EdroVolt.github.io/",
   "dependencies": {
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",

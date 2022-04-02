@@ -44,7 +44,7 @@ export default function Navbar() {
                     </NavLink>
 
                     <NavLink
-                      to="favourites"
+                      to="/favourites"
                       className={({ isActive }) =>
                         "px-3 py-2 rounded-md text-sm font-medium relative " +
                         (isActive
