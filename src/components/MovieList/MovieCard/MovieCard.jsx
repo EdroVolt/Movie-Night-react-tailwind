@@ -6,10 +6,14 @@ import {
   addToFavourite,
   removeFromFavourite,
 } from "../../../Redux/action/actions";
+import { useContext } from "react";
+import { LanguageContext } from "../../App";
 
 export default function MovieCard({ movie }) {
   const favorites = useSelector((state) => state.favorites);
   const dispatch = useDispatch();
+
+  const { language } = useContext(LanguageContext);
 
   const isInFavorites = () => {
     return !!favorites?.find((ele) => ele?.id === movie?.id);
@@ -40,7 +44,7 @@ export default function MovieCard({ movie }) {
           <HeartIcon className="w-8" />
         </div>
         <p className="text-xl absolute invisible bottom-0 py-2 right-0 left-0 text-yellow-400 bg-[#121212c1]">
-          Rate: {movie.vote_average}
+          {language === "en" ? "Rate" : "تقييم"}: {movie.vote_average}
           <span className="mx-2 text-cyan-200 ">|</span>
           {movie.release_date}
         </p>

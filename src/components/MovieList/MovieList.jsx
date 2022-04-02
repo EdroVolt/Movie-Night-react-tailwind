@@ -1,39 +1,33 @@
-import { useEffect, useState } from "react";
-import { Movie } from "../../APIs/moviesDb.api";
+import { useContext, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getMovies } from "../../Redux/action/actions";
+import { LanguageContext } from "../App";
 import Pagination from "../common/Pagination/Pagination";
 import MovieCard from "./MovieCard/MovieCard";
 
 export default function MovieList() {
-  const [movies, setMovies] = useState([]);
+  const movies = useSelector((select) => select.movies);
+  const totalResults = useSelector((select) => select.totalResults);
+  const totalPages = useSelector((select) => select.totalPages);
   const [pageNumber, setPageNumber] = useState(1);
-  const [totalResults, setTotalResults] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
+  const dispatch = useDispatch();
+
+  const { language } = useContext(LanguageContext);
 
   useEffect(() => {
-    (async () => {
-      const data = await Movie.get("/popular");
-      console.log(data);
-      setTotalPages(data.data.total_pages);
-      setTotalResults(data.data.total_results);
-      setMovies(data.data.results);
-    })();
-  }, []);
+    // const data = await Movie.get("/popular");
+    dispatch(getMovies(pageNumber, language));
+  }, [language]);
 
   const getData = async (pageNumber) => {
-    const data = await Movie.get("/popular", {
-      params: {
-        page: pageNumber,
-      },
-    });
-
+    dispatch(getMovies(pageNumber));
     setPageNumber(pageNumber);
-    setMovies(data.data.results);
   };
 
   return (
     <>
       <div className="grid grid-cols-12 gap-4 md:gap-8">
-        {movies.map((movie) => (
+        {movies?.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>

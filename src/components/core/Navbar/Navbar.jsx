@@ -1,12 +1,18 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { useSelector } from "react-redux/es/exports";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link, NavLink } from "react-router-dom";
 import "./navbar.css";
+import { LanguageContext } from "../../App";
 
 export default function Navbar() {
   const favorites = useSelector((state) => state.favorites);
+  const { language, setLanguage } = useContext(LanguageContext);
+
+  const handelLangaugeChange = () => {
+    language === "en" ? setLanguage("ar") : setLanguage("en");
+  };
 
   return (
     <Disclosure as="nav" className="bg-gray-900 mb-10">
@@ -69,13 +75,12 @@ export default function Navbar() {
                   aria-describedby="button-addon2"
                 />
 
-                <Link
-                  key="login"
-                  to=""
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                <button
+                  onClick={handelLangaugeChange}
+                  className="text-gray-300 ml-2 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Login
-                </Link>
+                  {language}
+                </button>
               </div>
             </div>
           </div>
